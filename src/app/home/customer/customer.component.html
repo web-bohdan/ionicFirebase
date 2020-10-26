@@ -1,0 +1,22 @@
+<div class="container">
+  <app-item [item]="item" *ngFor="let item of this.orderService.getOrders() | async"></app-item>
+  <form [formGroup]="CreateOrderForm" (ngSubmit)="SubmitForm()">
+    <ion-item>
+      <ion-label position="stacked">Title</ion-label>
+      <ion-input type="text" formControlName="title" name="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Description</ion-label>
+      <ion-textarea formControlName="description"></ion-textarea>
+    </ion-item>
+    <br/>
+    <ion-button 
+      color="primary"
+      ion-button
+      type="submit"
+      block
+      [disabled]="CreateOrderForm.invalid"
+    >
+    Send</ion-button>
+  </form>
+</div>

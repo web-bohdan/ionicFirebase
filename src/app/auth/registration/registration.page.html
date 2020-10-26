@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registration</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="RegistrationForm" (ngSubmit)="SubmitForm()">
+    <ion-item>
+      <ion-label position="stacked">Name</ion-label>
+      <ion-input type="text" formControlName="name" name="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="email" formControlName="email" name="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input type="password" formControlName="password" name="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Seller</ion-label>
+      <ion-checkbox formControlName="seller" color="primary"></ion-checkbox>
+    </ion-item>
+    <div>
+      <a [routerLink]="['/auth/login']">Login</a>
+    </div>
+      <ion-button 
+      color="primary"
+      ion-button
+      type="submit"
+      block
+      [disabled]="RegistrationForm.invalid"
+      >Send</ion-button>
+  </form>
+</ion-content>

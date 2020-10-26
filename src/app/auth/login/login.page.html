@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="LoginForm" (ngSubmit)="SubmitForm()">
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="email" formControlName="email" name="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input type="password" formControlName="password" name="password"></ion-input>
+    </ion-item>
+    <div>
+      <a [routerLink]="['/auth/registration']">Registration</a>
+    </div>
+    <ion-button 
+      color="primary"
+      ion-button
+      type="submit"
+      block
+      [disabled]="LoginForm.invalid"
+    >
+    Send</ion-button>
+  </form>
+</ion-content>
